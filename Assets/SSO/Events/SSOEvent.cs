@@ -1,12 +1,22 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SSO
 {
-    public abstract class SSOEvent : ScriptableObject
+    [CreateAssetMenu(menuName = "SSO/Events/New Event")]
+    public class SSOEvent : ScriptableObject
     {
         private List<SSOListener> listeners = new List<SSOListener>();
-    
+        public List<SSOListener> Listeners => listeners;
+        
+        public int ListenersCount => listeners.Count;
+
+        private void OnEnable()
+        {
+            listeners = new List<SSOListener>();
+        }
+
         public void TriggerEvent()
         {
             for (int i = listeners.Count -1; i >= 0; i--)
@@ -15,13 +25,13 @@ namespace SSO
             }
         }
     
-        public void AddListener(SSOListener listener)
+        public void Add(SSOListener listener)
         {
-            listeners.Add(listener);
+            if(!listeners.Contains(listener)) listeners.Add(listener);
         }
-        public void RemoveListener(SSOListener listener)
+        public void Remove(SSOListener listener)
         {
-            listeners.Remove(listener);
+            if(listeners.Contains(listener)) listeners.Remove(listener);
         }
     }
 

@@ -3,26 +3,24 @@ using UnityEngine.Events;
 
 namespace SSO
 {
-
     public class SSOListener : MonoBehaviour
     {
-        public SSOEvent _event;
-        public UnityEvent onEventTriggered;
-        
+        public SSOEvent Event;
+        [SerializeField] protected UnityEvent EventTriggered;
+
         void OnEnable()
         {
-            _event.AddListener(this);
+            Event.Add(this);
         }
         
         void OnDisable()
         {
-            _event.RemoveListener(this);
+            Event.Remove(this);
         }
-        
+
         public void OnEventTriggered()
         {
-            onEventTriggered.Invoke();
+            EventTriggered.Invoke();
         }
     }
-
 }
