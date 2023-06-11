@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace SSO.Events
+namespace SSO.Events.Editor
 {
     [CustomEditor(typeof(SSOEvent))]
     public class SSOEventEditor : UnityEditor.Editor

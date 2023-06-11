@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace SSO.Events
+namespace SSO.Events.Editor
 {
     [CustomEditor(typeof(SSOListener))]
     public class SSOListenerEditor : UnityEditor.Editor

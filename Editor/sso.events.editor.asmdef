@@ -1,7 +1,9 @@
 {
-    "name": "sso.events",
+    "name": "sso.events.editor",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:9aaac08bfb0aa45478fac0720fc42417"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
