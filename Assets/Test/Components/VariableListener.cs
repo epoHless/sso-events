@@ -17,14 +17,23 @@ public class VariableListener : MonoBehaviour
 
     private void OnEnable()
     {
-        HP.OnValueChanged += HPOnOnValueChanged;
-        Active.OnValueChanged += ActiveOnOnValueChanged;
+        HP.OnValueChanged.AddListener(HPOnOnValueChanged);
+        HP.OnMaxValueChanged += HPOnOnValueChanged;
+        
+        HP.OnMinValueReached += OnMinValueReached;
+        
+        Active.OnValueChanged.AddListener(ActiveOnOnValueChanged);
     }
-    
+
+    private void OnMinValueReached()
+    {
+        Debug.Log("YOU DIED!");
+    }
+
     private void OnDisable()
     {
-        HP.OnValueChanged -= HPOnOnValueChanged;
-        Active.OnValueChanged -= ActiveOnOnValueChanged;
+        HP.OnValueChanged.RemoveListener(HPOnOnValueChanged);
+        Active.OnValueChanged.RemoveListener(ActiveOnOnValueChanged);
     }
 
     private void ActiveOnOnValueChanged(bool _value)

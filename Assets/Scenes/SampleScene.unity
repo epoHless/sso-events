@@ -932,7 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c73aa58948d45548a7470856fba4deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: {fileID: 11400000, guid: 632801047bd2b1a4486980d0d7b890d5, type: 2}
+  HP: {fileID: 11400000, guid: 1162407f7e3f32946b46c8009a98c684, type: 2}
 --- !u!212 &1430861000
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SSO/Variables/Float Range Variable", order = 0)]
-public class SSOFloatRange : SSOVariable<float>
+public class SSOFloatRange : SSOFloatVariable
 {
     public Action<float> OnMaxValueChanged;
     public Action<float> OnMinValueChanged;
@@ -12,23 +12,25 @@ public class SSOFloatRange : SSOVariable<float>
     public Action OnMaxValueReached;
     public Action OnMinValueReached;
 
+    private SSOFloatVariable FloatVariable;
+    
     public override float Value
     {
-        get => value;
+        get => FloatVariable.Value;
         set
         {
-            this.value = value;
+            FloatVariable.Value = value;
             
-            CallOnValueChanged(value);
+            FloatVariable.OnValueChanged?.Invoke(FloatVariable.Value);
 
-            if (this.value > maxValue)
+            if (FloatVariable.Value > maxValue)
             {
-                this.value = maxValue;
+                FloatVariable.Value = maxValue;
                 OnMaxValueReached?.Invoke();
             }
-            else if (this.value < minValue)
+            else if (FloatVariable.Value < minValue)
             {
-                this.value = minValue;
+                FloatVariable.Value = minValue;
                 OnMinValueReached?.Invoke();
             }
         } 
@@ -62,11 +64,20 @@ public class SSOFloatRange : SSOVariable<float>
             
         GUILayout.BeginVertical("VALUE", "window");
 
+        FloatVariable = (SSOFloatVariable)EditorGUILayout.ObjectField(FloatVariable, typeof(SSOFloatVariable), false);
+        
         GUILayout.BeginHorizontal();
 
-        MinValue = EditorGUILayout.FloatField("", MinValue, GUILayout.Width(40));
-        Value = EditorGUILayout.Slider(Value, MinValue, MaxValue);
-        MaxValue = EditorGUILayout.FloatField("", MaxValue, GUILayout.Width(40));
+        if (!FloatVariable)
+        {
+            EditorGUILayout.HelpBox("Add a Float Variable in order to start modifying the values", MessageType.Error);
+        }
+        else
+        {
+            MinValue = EditorGUILayout.FloatField("", MinValue, GUILayout.Width(40));
+            Value = EditorGUILayout.Slider(Value, MinValue, MaxValue);
+            MaxValue = EditorGUILayout.FloatField("", MaxValue, GUILayout.Width(40));
+        }
 
         GUILayout.EndHorizontal();
         

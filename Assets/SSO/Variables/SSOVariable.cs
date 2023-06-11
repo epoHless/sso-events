@@ -1,15 +1,16 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SSO
 {
     public abstract class SSOVariable<T> : ScriptableObject,  IScriptableEditor
     {
-        public event Action<T> OnValueChanged;
+        public UnityEvent<T> OnValueChanged;
 
         [SerializeField] protected T value;
-        [SerializeField] public virtual T Value
+        public virtual T Value
         {
             get => value;
             set
