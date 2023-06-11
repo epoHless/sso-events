@@ -10,8 +10,13 @@ namespace SSO
         {
             var script = (SSOListener)target;
 
-            GUILayout.BeginVertical($"SSO LISTENER", "window");
-
+            var message = script.Event ? $"LISTENING TO {script.Event.name.ToUpper()}" : "MISSING EVENT";
+            
+            var baseColor = GUI.color;
+            GUI.color = script.Event ? Color.green : Color.red;
+            GUILayout.BeginVertical(message, "window");
+            GUI.color = baseColor;
+            
             script.Event = (SSOEvent)EditorGUILayout.ObjectField(script.Event, typeof(SSOEvent), false);
             
             this.serializedObject.Update();

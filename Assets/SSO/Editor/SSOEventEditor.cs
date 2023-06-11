@@ -29,7 +29,7 @@ namespace SSO
             GUILayout.BeginVertical($"There are {script.ListenersCount} Listeners", "window");
             
             if(script.ListenersCount > 0) 
-                EditorGUILayout.HelpBox("In order to raise events from editor event calls must be set to 'editor and runtime' in SSOListener", MessageType.Info);
+                EditorGUILayout.HelpBox("In order to raise events from editor event calls must be set to 'editor and runtime' in the SSOListener component", MessageType.Info);
 
             for (int i = 0; i < script.ListenersCount; i++)
             {
