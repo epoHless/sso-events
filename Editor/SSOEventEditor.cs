@@ -1,12 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace SSO
+namespace SSO.Events.Editor
 {
     [CustomEditor(typeof(SSOEvent))]
-    public class SSOEventEditor : Editor
+    public class SSOEventEditor : UnityEditor.Editor
     {
         private GUIStyle labelStyle;
 

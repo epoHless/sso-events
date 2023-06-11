@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace SSO
+namespace SSO.Events
 {
     public class SSOListener : MonoBehaviour
     {

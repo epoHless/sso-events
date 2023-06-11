@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SSO
+namespace SSO.Events
 {
     [CreateAssetMenu(menuName = "SSO/Events/New Event")]
     public class SSOEvent : ScriptableObject

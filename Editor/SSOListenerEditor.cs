@@ -1,10 +1,10 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace SSO
+namespace SSO.Events.Editor
 {
     [CustomEditor(typeof(SSOListener))]
-    public class SSOListenerEditor : Editor
+    public class SSOListenerEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
