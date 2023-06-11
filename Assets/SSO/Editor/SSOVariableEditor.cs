@@ -6,7 +6,7 @@ public class SSOVariableEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        var script = (IScriptableIndex)target;
+        var script = (IScriptableEditor)target;
         script.OnInspectorGUI();
     }
 }

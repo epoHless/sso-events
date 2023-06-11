@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SSO
 {
-    public abstract class SSOVariable<T> : ScriptableObject,  IScriptableIndex
+    public abstract class SSOVariable<T> : ScriptableObject,  IScriptableEditor
     {
         public event Action<T> OnValueChanged;
 
@@ -19,6 +19,11 @@ namespace SSO
             }
         }
 
+        protected void CallOnValueChanged(T value)
+        {
+            OnValueChanged?.Invoke(value);
+        }
+        
         public virtual void OnInspectorGUI()
         {
         #if UNITY_EDITOR
@@ -29,7 +34,7 @@ namespace SSO
             GUILayout.BeginVertical("VALUE", "window");
 
             EditorGUILayout.HelpBox("The base editor can only serialize the field value," +
-                                    " you may call OnValueChanged from the inspector", MessageType.Info);
+                                    " you can't call OnValueChanged from the inspector", MessageType.Info);
             GUILayout.Space(5);
             serializedObject.Update();
             EditorGUILayout.PropertyField(property, true);

@@ -4,10 +4,16 @@ using UnityEngine.UI;
 
 public class VariableListener : MonoBehaviour
 {
-    public SSOVariable<float> HP;
+    public SSOFloatRange HP;
     public SSOVariable<bool> Active;
     
     [SerializeField] private Image Image;
+
+    private void Start()
+    {
+        HP.Value = HP.MaxValue;
+        Image.fillAmount = HP.MaxValue / 100;
+    }
 
     private void OnEnable()
     {
@@ -28,6 +34,6 @@ public class VariableListener : MonoBehaviour
 
     private void HPOnOnValueChanged(float _value)
     {
-        Image.fillAmount = _value / 100;
+        Image.fillAmount = _value / HP.MaxValue;
     }
 }

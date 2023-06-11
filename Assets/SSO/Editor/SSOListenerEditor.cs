@@ -12,22 +12,23 @@ namespace SSO
 
             GUILayout.BeginVertical($"SSO LISTENER", "window");
 
-            this.serializedObject.Update();
-            EditorGUILayout.PropertyField(this.serializedObject.FindProperty("Event"), true);
-            this.serializedObject.ApplyModifiedProperties();
+            script.Event = (SSOEvent)EditorGUILayout.ObjectField(script.Event, typeof(SSOEvent), false);
             
             this.serializedObject.Update();
             EditorGUILayout.PropertyField(this.serializedObject.FindProperty("EventTriggered"), true);
             this.serializedObject.ApplyModifiedProperties();
-            
-            if (!script.Event.Listeners.Contains(script))
+
+            if (script.Event != null)
             {
-                if (GUILayout.Button("Add Listener"))
+                if (!script.Event.Listeners.Contains(script))
                 {
-                    script.Event.Add(script);
+                    if (GUILayout.Button("Add Listener"))
+                    {
+                        script.Event.Add(script);
+                    }
                 }
             }
-            
+
             GUILayout.EndVertical();
         }
     }

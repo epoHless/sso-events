@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SSO
 {
-    [CreateAssetMenu(fileName = "New bool Variable", menuName = "SSO/Variables/Bool Variable", order = 0)]
+    [CreateAssetMenu(menuName = "SSO/Variables/Bool Variable", order = 0)]
 
     public class SSOBoolVariable : SSOVariable<bool>
     {

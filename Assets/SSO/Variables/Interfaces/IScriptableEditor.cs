@@ -1,6 +1,6 @@
 ﻿using System;
 
-public interface IScriptableIndex
+public interface IScriptableEditor
 {
     public abstract void OnInspectorGUI();
 }

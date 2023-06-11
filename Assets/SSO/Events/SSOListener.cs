@@ -6,7 +6,7 @@ namespace SSO
     public class SSOListener : MonoBehaviour
     {
         public SSOEvent Event;
-        [SerializeField] protected UnityEvent EventTriggered;
+        public UnityEvent EventTriggered;
 
         void OnEnable()
         {
