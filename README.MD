@@ -19,7 +19,6 @@ A scriptable object based event architecture.
 <br>
 
 ## **📣 Events**
----
 Events are Scriptable Objects that can be created by right clicking in the asset folder.
 
 `Create -> SSO -> Events -> New Event`
@@ -32,7 +31,6 @@ The `- button` allows you to unsubscribe the relative gameobject.
 <br>
 
 ## **💡 Listeners**
----
 Listeners are MonoBehaviours that will react when a SSO Event is raised.
 
 In order to use them you need to add a `SSO Listener` Component to your gameobject.
