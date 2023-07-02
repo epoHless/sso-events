@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace SSO.Events.Editor
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(SSOListener))]
     public class SSOListenerEditor : UnityEditor.Editor
     {
@@ -37,4 +38,5 @@ namespace SSO.Events.Editor
             GUILayout.EndVertical();
         }
     }
+#endif
 }

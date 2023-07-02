@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace SSO.Events.Editor
 {
+#if UNITY_EDITOR
     [CustomEditor(typeof(SSOEvent))]
     public class SSOEventEditor : UnityEditor.Editor
     {
@@ -69,4 +70,5 @@ namespace SSO.Events.Editor
             GUILayout.EndVertical();
         }
     }
+#endif
 }
